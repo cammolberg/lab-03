@@ -109,7 +109,6 @@ fun CityRow(city: City, editThisCity: String, onAddCity: (City) -> Unit, onRemov
     var changeProvince by remember { mutableStateOf("") }
 
 
-
     if (editThisCity != city.name) {
         Row(
             modifier = Modifier
@@ -134,6 +133,7 @@ fun CityRow(city: City, editThisCity: String, onAddCity: (City) -> Unit, onRemov
         }
     }
     else {
+
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Row(
                 modifier = Modifier
