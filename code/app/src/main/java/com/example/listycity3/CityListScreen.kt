@@ -109,6 +109,7 @@ fun CityRow(city: City, editThisCity: String, onAddCity: (City) -> Unit, onRemov
     var changeProvince by remember { mutableStateOf("") }
 
 
+
     if (editThisCity != city.name) {
         Row(
             modifier = Modifier
@@ -127,7 +128,10 @@ fun CityRow(city: City, editThisCity: String, onAddCity: (City) -> Unit, onRemov
                 modifier = Modifier.weight(1f)
             )
 
-            Button(onClick = {changeState()}){
+            Button(onClick = {
+                changeState()
+                changedName = city.name
+                changeProvince = city.province}){
                 Text("Edit")
             }
         }
@@ -181,7 +185,10 @@ fun CityRow(city: City, editThisCity: String, onAddCity: (City) -> Unit, onRemov
                 }
 
                 Spacer(modifier = Modifier.width(15.dp))
-                Button(onClick = { changeState() }) { Text("Cancel") }
+                Button(onClick = { changeState()
+                    changedName = ""
+                    changeProvince = ""}) {
+                    Text("Cancel")}
             }
 
         }
